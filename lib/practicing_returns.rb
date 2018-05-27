@@ -3,10 +3,12 @@ require 'pry'
 def hello(array)
   i = 0
   while i < array.length
-    yield(array[i])
+    results = []
+    results<<yield(array[i])
     i += 1
   end
+  results
 end
 
-
+binding.pry
 hello(["Tim", "Tom", "Jim"]) { |name| puts "Hi, #{name}" }
